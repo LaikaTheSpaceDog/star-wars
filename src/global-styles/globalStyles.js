@@ -1,15 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import "@fontsource/poppins";
  
 const GlobalStyle = createGlobalStyle`
-    body {
-        height: 100vh;
-    }
-
-    .container {
-        width: 100%;
-        height: 100%;
-    }
-
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -53,6 +45,16 @@ const GlobalStyle = createGlobalStyle`
     table {
         border-collapse: collapse;
         border-spacing: 0;
+    }
+
+    body {
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
     }
 `;
  
