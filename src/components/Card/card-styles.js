@@ -39,6 +39,10 @@ const CardComponent = styled.div`
                 display: flex;
                 justify-content: space-between;
                 cursor: pointer;
+
+                &.active {
+                    border: 5px solid ${colors.green};
+                }
             }
         }
     }
