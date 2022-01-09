@@ -5,9 +5,9 @@ import LoadingComponent from "./loading-styles";
 class Loading extends Component {
 
     componentDidMount() {
-        // if (!this.props.loaded) {
+        if (!this.props.loaded) {
             this.props.handleLoad();
-        // }
+        }
     }
 
     render(){

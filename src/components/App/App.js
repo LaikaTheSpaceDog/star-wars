@@ -1,4 +1,4 @@
-import Home from "../Home/Home";
+import Home from "../Home/";
 import AppComponent from "./app-styles";
 import Loading from '../Loading/';
 
