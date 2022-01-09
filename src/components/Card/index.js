@@ -2,8 +2,10 @@ import { connect } from "react-redux";
 import Card from "./Card";
 import {playRound} from "../../data/actions/state";
 
-const mapStateToProps = ({revealScores }) => ({
-    revealScores
+const mapStateToProps = ({revealScores,winner,loser}) => ({
+    revealScores,
+    winner,
+    loser
 });
 
 const mapDispatchToProps = (dispatch) => ({

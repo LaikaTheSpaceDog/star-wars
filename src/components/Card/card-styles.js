@@ -47,8 +47,18 @@ const CardComponent = styled.div`
                 border: 5px solid ${colors.yellow};
                 transition: border-color ease-in-out 250ms;
 
-                &.active {
+                &.won {
                     border-color: ${colors.green};
+                    padding: 3px;
+                }
+
+                &.draw {
+                    border-color: ${colors.orange};
+                    padding: 3px;
+                }
+
+                &.lost {
+                    border-color: ${colors.red};
                     padding: 3px;
                 }
             }
