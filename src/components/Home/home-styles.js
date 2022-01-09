@@ -7,5 +7,8 @@ const HomeComponent = styled.div`
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 export default HomeComponent;

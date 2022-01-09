@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import HomeComponent from "./home-styles";
+import Card from "../Card/";
 
 const shuffle = (array) => {
     let currentIndex = array.length,  randomIndex;
@@ -38,7 +39,8 @@ const Home = ({starships}) => {
 
     return(
         <HomeComponent>
-
+            <Card cards={player1Cards} />
+            <Card cards={player2Cards} />
         </HomeComponent>
     )
 }
