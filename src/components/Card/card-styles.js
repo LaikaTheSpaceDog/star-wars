@@ -32,16 +32,24 @@ const CardComponent = styled.div`
             flex-direction: column;
             gap: 24px;
 
+            &.clickable {
+                .card__details-list-item {
+                    cursor: pointer;
+                }
+            }
+
             .card__details-list-item {
                 background-color: ${colors.yellow};
-                padding: 8px;
+                padding: 3px;
                 line-height: 24px;
                 display: flex;
                 justify-content: space-between;
-                cursor: pointer;
+                border: 5px solid ${colors.yellow};
+                transition: border-color ease-in-out 250ms;
 
                 &.active {
-                    border: 5px solid ${colors.green};
+                    border-color: ${colors.green};
+                    padding: 3px;
                 }
             }
         }

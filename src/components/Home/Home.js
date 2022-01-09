@@ -6,8 +6,8 @@ const Home = ({player1Cards,player2Cards}) => {
 
     return(
         <HomeComponent>
-            <Card cards={player1Cards} />
-            <Card cards={player2Cards} />
+            <Card cards={player1Cards} player={1} />
+            <Card cards={player2Cards} player={2} />
         </HomeComponent>
     )
 }

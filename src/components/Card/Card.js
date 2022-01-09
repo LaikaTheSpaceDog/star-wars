@@ -1,7 +1,7 @@
 import CardComponent from "./card-styles";
 import {useState} from "react";
 
-const Card = ({cards}) => {
+const Card = ({cards,player}) => {
 
     const [speedActive,setSpeedActive] = useState(false);
     const [creditActive,setCreditActive] = useState(false);
@@ -39,22 +39,22 @@ const Card = ({cards}) => {
             </div>
             <div className="card__image"></div>
             <div className="card__details">
-                <ul className="card__details-list">
-                    <li className={speedActive ? "card__details-list-item active" : "card__details-list-item"} onClick={() => handleClick('speed')}>
+                <ul className={player === 1 ? "card__details-list clickable" : "card__details-list"}>
+                    <li className={speedActive ? "card__details-list-item active" : "card__details-list-item"} onClick={player === 1 ? () => handleClick('speed') : null}>
                         <p>Max Speed</p>
-                        <p>{cards[0].max_atmosphering_speed}</p>
+                        <p>{player === 1 ? cards[0].max_atmosphering_speed : "?"}</p>
                     </li>
-                    <li className={creditActive ? "card__details-list-item active" : "card__details-list-item"} onClick={() => handleClick('credit')}>
+                    <li className={creditActive ? "card__details-list-item active" : "card__details-list-item"} onClick={player === 1 ? () => handleClick('credit') : null}>
                         <p>Credit Cost</p>
-                        <p>{cards[0].cost_in_credits}</p>
+                        <p>{player === 1 ? cards[0].cost_in_credits : "?"}</p>
                     </li>
-                    <li className={passengersActive ? "card__details-list-item active" : "card__details-list-item"} onClick={() => handleClick('passengers')}>
+                    <li className={passengersActive ? "card__details-list-item active" : "card__details-list-item"} onClick={player === 1 ?() => handleClick('passengers') : null}>
                         <p>Passengers</p>
-                        <p>{cards[0].passengers}</p>
+                        <p>{player === 1 ? cards[0].passengers : "?"}</p>
                     </li>
-                    <li className={filmsActive ? "card__details-list-item active" : "card__details-list-item"} onClick={() => handleClick('films')}>
+                    <li className={filmsActive ? "card__details-list-item active" : "card__details-list-item"} onClick={player === 1 ? () => handleClick('films') : null}>
                         <p>Film Appearances</p>
-                        <p>{cards[0].films.length}</p>
+                        <p>{player === 1 ? cards[0].films.length : "?"}</p>
                     </li>
                 </ul>
             </div>
