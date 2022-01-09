@@ -2,9 +2,7 @@ import React from "react";
 import HomeComponent from "./home-styles";
 import Card from "../Card/";
 
-
-
-const Home = ({starships}) => {
+const Home = ({player1Cards,player2Cards}) => {
 
     return(
         <HomeComponent>
