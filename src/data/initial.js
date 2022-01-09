@@ -1,6 +1,7 @@
 const initial = {
     loaded: false,
-    starships: {}
+    player1Cards: [],
+    player2Cards: []
 }
 
 export default initial;
