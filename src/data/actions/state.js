@@ -1,2 +1,6 @@
-import axios from "../../axios";
-import store from "../../store";
+export const loaded = (data) => {
+    return {
+        type: "loaded",
+        data: data
+    };
+};

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import bg from '../../assets/img/bg/stars.png';
 
 const HomeComponent = styled.div`
-    background: black;
     width: 100%;
     height: 100%;
     background-image: url(${bg});

@@ -1,11 +1,14 @@
 import Home from "../Home/Home";
 import AppComponent from "./app-styles";
+import Loading from '../Loading/';
 
 const App = () => {
     return (
-        <AppComponent>
-            <Home />
-        </AppComponent>
+        <Loading>
+            <AppComponent>
+                <Home />
+            </AppComponent>
+        </Loading>
     );
 }
 
