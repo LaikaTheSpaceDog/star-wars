@@ -4,3 +4,16 @@ export const loaded = (data) => {
         data: data
     };
 };
+
+export const playRound = (data) => {
+    return {
+        type: "play",
+        data: data
+    }
+}
+
+export const reset = () => {
+    return {
+        type: "reset"
+    }
+}

@@ -1,8 +1,13 @@
 import { connect } from "react-redux";
 import Card from "./Card";
+import {playRound} from "../../data/actions/state";
 
-const mapStateToProps = ({ loaded }) => ({
-
+const mapStateToProps = ({revealScores }) => ({
+    revealScores
 });
 
-export default connect(mapStateToProps)(Card);
+const mapDispatchToProps = (dispatch) => ({
+    play: data => dispatch(playRound(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

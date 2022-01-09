@@ -1,9 +1,14 @@
 import { connect } from "react-redux";
 import Home from "./Home";
+import {reset} from "../../data/actions/state";
 
-const mapStateToProps = ({ player1Cards,player2Cards }) => ({
-    player1Cards,
-    player2Cards
+const mapStateToProps = ({ player1,player2 }) => ({
+    player1,
+    player2
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch) => ({
+    reset: data => dispatch(reset())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

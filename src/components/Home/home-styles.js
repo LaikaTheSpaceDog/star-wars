@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import bg from '../../assets/img/bg/stars.png';
+import {colors} from '../../global-styles/styleVariables';
 
 const HomeComponent = styled.div`
     width: 100%;
@@ -10,5 +11,28 @@ const HomeComponent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .home__scores {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 16px;
+        
+        p {
+            color: ${colors.white};
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 32.5px;
+        }
+    }
+
+    .home__reset-button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
 `
 export default HomeComponent;

@@ -2,12 +2,21 @@ import React from "react";
 import HomeComponent from "./home-styles";
 import Card from "../Card/";
 
-const Home = ({player1Cards,player2Cards}) => {
+const Home = ({player1,player2,reset}) => {
+
+    const handleReset = () => {
+        reset();
+    }
 
     return(
         <HomeComponent>
-            <Card cards={player1Cards} player={1} />
-            <Card cards={player2Cards} player={2} />
+            <div className="home__scores">
+                <p>{player1.score}</p>
+                <p>{player2.score}</p>
+            </div>
+            <Card cards={player1.cards} player={1} />
+            <Card cards={player2.cards} player={2} />
+            <button className="home__reset-button" onClick={() => handleReset()}>RESET</button>
         </HomeComponent>
     )
 }
