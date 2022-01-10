@@ -2,11 +2,10 @@ import { connect } from "react-redux";
 import Home from "./Home";
 import {reset} from "../../data/actions/state";
 
-const mapStateToProps = ({ player1,player2,winner,loser}) => ({
+const mapStateToProps = ({ player1,player2,winner}) => ({
     player1,
     player2,
     winner,
-    loser
 });
 
 const mapDispatchToProps = (dispatch) => ({

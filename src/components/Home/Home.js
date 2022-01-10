@@ -2,7 +2,7 @@ import React from "react";
 import HomeComponent from "./home-styles";
 import Card from "../Card/";
 
-const Home = ({player1,player2,reset,winner,loser}) => {
+const Home = ({player1,player2,reset,winner}) => {
 
     const handleReset = () => {
         reset();

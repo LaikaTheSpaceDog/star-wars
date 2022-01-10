@@ -47,13 +47,24 @@ const HomeComponent = styled.div`
         color: ${colors.yellow};
         font-size: 26px;
         line-height: 32.5px;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 20px 16px;
+        padding: 20px 0;
         text-align: center;
         text-transform: uppercase;
+        position: absolute;
+        top: 0;
+
+        p {
+            animation: zoom-in-zoom-out 2s ease-in-out 1;
+        }
+    }
+
+    @keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(0, 0);
+        }
+        50% {
+            transform: scale(1, 1);
+        }
     }
 `
 export default HomeComponent;
