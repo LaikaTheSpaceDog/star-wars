@@ -62,20 +62,21 @@ const play = (state, {data}) => ({
 })
 
 const compare = (valA,valB,prevScore) => {
-    let valANumeric = parseInt(valA.replace(/,/g, ''),10);
-    let valBNumeric = parseInt(valB.replace(/,/g, ''),10);
+    let valANumeric = parseInt(valA.replace(/[^0-9.]/g, 0),10);
+    let valBNumeric = parseInt(valB.replace(/[^0-9.]/g, 0),10);
+    console.log(valANumeric, valBNumeric);
     return valANumeric > valBNumeric ? (prevScore + 1) : prevScore;
 }
 
 const winner = (player1, player2) => {
-    let player1Numeric = parseInt(player1.replace(/,/g, ''),10);
-    let player2Numeric = parseInt(player2.replace(/,/g, ''),10);
+    let player1Numeric = parseInt(player1.replace(/[^0-9.]/g, 0),10);
+    let player2Numeric = parseInt(player2.replace(/[^0-9.]/g, 0),10);
     return player1Numeric > player2Numeric ? 1 : player2Numeric > player1Numeric ? 2 : "draw";
 }
 
 const loser = (player1, player2) => {
-    let player1Numeric = parseInt(player1.replace(/,/g, ''),10);
-    let player2Numeric = parseInt(player2.replace(/,/g, ''),10);
+    let player1Numeric = parseInt(player1.replace(/[^0-9.]/g, 0),10);
+    let player2Numeric = parseInt(player2.replace(/[^0-9.]/g, 0),10);
     return player1Numeric < player2Numeric ? 1 : player2Numeric < player1Numeric ? 2 : "draw";
 }
 
