@@ -33,6 +33,27 @@ const HomeComponent = styled.div`
         position: absolute;
         bottom: 10px;
         right: 10px;
+        background: ${colors.black};
+        color: ${colors.yellow};
+        border: none;
+        padding: 10px 20px;
+        font-size: 26px;
+        line-height: 32.5px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .home__alert {
+        color: ${colors.yellow};
+        font-size: 26px;
+        line-height: 32.5px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 20px 16px;
+        text-align: center;
+        text-transform: uppercase;
     }
 `
 export default HomeComponent;
