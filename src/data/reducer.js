@@ -49,35 +49,45 @@ const reset = () => ({
 const play = (state, {data}) => ({
     ...state,
     player1: {
-        score: compare(state.player1.cards[0][data], state.player2.cards[0][data],state.player1.score),
+        score: compare(state.player1.cards[0][data], state.player2.cards[0][data],state.player1.score,data),
         cards: state.player1.cards
     },
     player2: {
-        score: compare(state.player2.cards[0][data], state.player1.cards[0][data], state.player2.score),
+        score: compare(state.player2.cards[0][data], state.player1.cards[0][data], state.player2.score,data),
         cards: state.player2.cards
     },
     revealScores: true,
-    winner: winner(state.player1.cards[0][data], state.player2.cards[0][data]),
-    loser: loser(state.player1.cards[0][data], state.player2.cards[0][data])
+    winner: winner(state.player1.cards[0][data], state.player2.cards[0][data],data),
+    loser: loser(state.player1.cards[0][data], state.player2.cards[0][data],data)
 })
 
-const compare = (valA,valB,prevScore) => {
-    let valANumeric = parseInt(valA.replace(/[^0-9.]/g, 0),10);
-    let valBNumeric = parseInt(valB.replace(/[^0-9.]/g, 0),10);
-    console.log(valANumeric, valBNumeric);
-    return valANumeric > valBNumeric ? (prevScore + 1) : prevScore;
+const calcScores = (valA,valB,cat) => {
+    let valANumeric = 0;
+    let valBNumeric = 0;
+    console.log(cat);
+    if(cat !== 'films' && !Array.isArray(cat)){
+        valANumeric = parseInt(valA.replace(/[^0-9.]/g, 0),10);
+        valBNumeric = parseInt(valB.replace(/[^0-9.]/g, 0),10);
+    } else {
+        valANumeric = valA.length;
+        valBNumeric = valB.length;
+    }
+    return [valANumeric, valBNumeric];
 }
 
-const winner = (player1, player2) => {
-    let player1Numeric = parseInt(player1.replace(/[^0-9.]/g, 0),10);
-    let player2Numeric = parseInt(player2.replace(/[^0-9.]/g, 0),10);
-    return player1Numeric > player2Numeric ? 1 : player2Numeric > player1Numeric ? 2 : "draw";
+const compare = (valA,valB,prevScore,cat) => {
+    let scores = calcScores(valA,valB,cat);
+    return scores[0] > scores[1] ? (prevScore + 1) : prevScore;
 }
 
-const loser = (player1, player2) => {
-    let player1Numeric = parseInt(player1.replace(/[^0-9.]/g, 0),10);
-    let player2Numeric = parseInt(player2.replace(/[^0-9.]/g, 0),10);
-    return player1Numeric < player2Numeric ? 1 : player2Numeric < player1Numeric ? 2 : "draw";
+const winner = (player1, player2,cat) => {
+    let scores = calcScores(player1,player2,cat);
+    return scores[0] > scores[1] ? 1 : scores[1] > scores[0] ? 2 : "draw";
+}
+
+const loser = (player1, player2,cat) => {
+    let scores = calcScores(player1,player2,cat);
+    return scores[0] < scores[1] ? 1 : scores[1] < scores[0] ? 2 : "draw";
 }
 
 const reducer = (state, action) => {
