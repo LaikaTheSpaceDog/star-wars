@@ -19,21 +19,23 @@ const Home = ({player1,player2,reset,winner,transition,nextRound}) => {
     return(
         <HomeComponent>
             <div className="home__scores">
-                <p>{player1.score}</p>
-                <p>{player2.score}</p>
+                <p>You: {player1.score}</p>
+                <p>Computer: {player2.score}</p>
             </div>
-            <div className="home__alert">
-                {winner === 1 ? 
-                    <p>You won this round!</p> 
-                : winner === 2 ? 
-                    <p>You lose this round!</p>
-                : winner === "draw" ?
-                    <p>This round is a draw!</p>
-                : null}
-            </div>
+            {transition ?
+                <div className="home__alert">
+                    {winner === 1 ? 
+                        <p>You won this round!</p> 
+                    : winner === 2 ? 
+                        <p>You lose this round!</p>
+                    : winner === "draw" ?
+                        <p>This round is a draw!</p>
+                    : null}
+                </div>
+            : null}
             <Card playerNum={1} />
             <Card playerNum={2} />
-            <button className="home__reset-button" onClick={() => handleReset()}>RESET</button>
+            <button className="home__reset-button" onClick={() => handleReset()}>Restart Game</button>
         </HomeComponent>
     )
 }

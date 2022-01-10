@@ -41,6 +41,7 @@ const HomeComponent = styled.div`
         line-height: 32.5px;
         cursor: pointer;
         border-radius: 4px;
+        text-transform: uppercase;
     }
 
     .home__alert {

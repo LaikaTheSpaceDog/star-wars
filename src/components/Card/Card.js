@@ -1,5 +1,5 @@
 import CardComponent from "./card-styles";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const Card = ({player,playerNum,play,revealScores,winner}) => {
 
@@ -13,6 +13,15 @@ const Card = ({player,playerNum,play,revealScores,winner}) => {
     const handlePlay = (category) => {
         play(category);
     }
+
+    useEffect(()=>{
+        if(!revealScores){
+            setSpeedActive(false);
+            setCreditActive(false);
+            setPassengersActive(false);
+            setFilmsActive(false);
+        }
+    },[revealScores]);
 
     const handleClick = (id) => {
         if(id === 'max_atmosphering_speed'){
