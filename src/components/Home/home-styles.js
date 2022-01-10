@@ -65,6 +65,21 @@ const HomeComponent = styled.div`
         }
     }
 
+    .home__final {
+        color: ${colors.yellow};
+        text-align: center;
+
+        .home__final-result {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .home__final-play-again {
+            cursor: pointer;
+            font-size: 20px;
+        }
+    }
+
     @keyframes zoom-in-zoom-out {
         0% {
             transform: scale(0, 0);
