@@ -33,7 +33,7 @@ const HomeComponent = styled.div`
         position: absolute;
         bottom: 10px;
         right: 10px;
-        background: ${colors.black};
+        background-color: ${colors.black};
         color: ${colors.yellow};
         border: none;
         padding: 10px 20px;
@@ -42,6 +42,12 @@ const HomeComponent = styled.div`
         cursor: pointer;
         border-radius: 4px;
         text-transform: uppercase;
+        transition: background-color ease-in-out 250ms, color ease-in-out 250ms;
+
+        &:hover {
+            background-color: ${colors.yellow};
+            color: ${colors.black};
+        }
     }
 
     .home__alert {

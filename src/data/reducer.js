@@ -39,7 +39,8 @@ const loaded = (state, decks) => ({
     player2: {
         cards: decks[1],
         score: 0
-    }
+    },
+    totalRounds: Math.floor((decks[0].length + decks[1].length) / 2)
 });
 
 const reset = () => ({

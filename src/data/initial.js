@@ -13,6 +13,7 @@ const initial = {
     },
     discardedCards: [],
     round: 1,
+    totalRounds: 0,
     transition: false
 }
 
