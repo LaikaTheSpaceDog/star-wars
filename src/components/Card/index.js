@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Card from "./Card";
 import {playRound} from "../../data/actions/state";
 
-const mapStateToProps = ({revealScores,winner,loser,player1,player2},ownProps) => {
+const mapStateToProps = ({revealScores,winner,loser,player1,player2,transition},ownProps) => {
     const {playerNum} = ownProps;
     let player = [];
 
@@ -16,7 +16,8 @@ const mapStateToProps = ({revealScores,winner,loser,player1,player2},ownProps) =
         revealScores,
         winner,
         loser,
-        player
+        player,
+        transition
     }
 };
 
