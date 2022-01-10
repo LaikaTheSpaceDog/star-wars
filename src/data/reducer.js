@@ -58,13 +58,13 @@ const play = (state, {data}) => ({
     },
     revealScores: true,
     winner: winner(state.player1.cards[0][data], state.player2.cards[0][data],data),
-    loser: loser(state.player1.cards[0][data], state.player2.cards[0][data],data)
+    loser: loser(state.player1.cards[0][data], state.player2.cards[0][data],data),
+    transition: true
 })
 
 const calcScores = (valA,valB,cat) => {
     let valANumeric = 0;
     let valBNumeric = 0;
-    console.log(cat);
     if(cat !== 'films' && !Array.isArray(cat)){
         valANumeric = parseInt(valA.replace(/[^0-9.]/g, 0),10);
         valBNumeric = parseInt(valB.replace(/[^0-9.]/g, 0),10);
@@ -90,11 +90,39 @@ const loser = (player1, player2,cat) => {
     return scores[0] < scores[1] ? 1 : scores[1] < scores[0] ? 2 : "draw";
 }
 
+const removeTopCard = (deck) => {
+    deck.shift();
+    return deck;
+}
+
+
+const addToDiscardPile = (pile,newCardA,newCardB) => {
+    pile.push(newCardA,newCardB);
+    return pile;
+}
+
+const next = (state) => ({
+    ...state,
+    discardedCards: addToDiscardPile(state.discardedCards,state.player1.cards[0],state.player2.cards[0]),
+    player1: {
+        score: state.player1.score,
+        cards: removeTopCard(state.player1.cards)
+    },
+    player2: {
+        score: state.player2.score,
+        cards: removeTopCard(state.player2.cards)
+    },
+    round: state.round + 1,
+    transition: false,
+    revealScores: false
+});
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "loaded": return loaded(state, decks(action.data));
         case "reset": return reset();
         case "play": return play(state, action);
+        case "next": return next(state);
         default: return state;
     }
 }

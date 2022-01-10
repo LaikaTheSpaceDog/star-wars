@@ -17,3 +17,9 @@ export const reset = () => {
         type: "reset"
     }
 }
+
+export const next = () => {
+    return {
+        type: "next"
+    }
+}

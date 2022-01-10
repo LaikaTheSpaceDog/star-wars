@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomeComponent from "./home-styles";
 import Card from "../Card/";
 
-const Home = ({player1,player2,reset,winner}) => {
+const Home = ({player1,player2,reset,winner,transition,nextRound}) => {
 
     const handleReset = () => {
         reset();
     }
+
+    useEffect(()=>{
+        if(transition){
+            setTimeout(()=>{
+                nextRound();
+            },5000);
+        }
+    },[transition,nextRound]);
 
     return(
         <HomeComponent>
@@ -23,8 +31,8 @@ const Home = ({player1,player2,reset,winner}) => {
                     <p>This round is a draw!</p>
                 : null}
             </div>
-            <Card cards={player1.cards} player={1} />
-            <Card cards={player2.cards} player={2} />
+            <Card playerNum={1} />
+            <Card playerNum={2} />
             <button className="home__reset-button" onClick={() => handleReset()}>RESET</button>
         </HomeComponent>
     )

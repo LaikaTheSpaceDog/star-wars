@@ -11,7 +11,9 @@ const initial = {
         cards: [],
         score: 0
     },
-    discardedCards: []
+    discardedCards: [],
+    round: 1,
+    transition: false
 }
 
 export default initial;

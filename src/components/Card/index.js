@@ -2,11 +2,23 @@ import { connect } from "react-redux";
 import Card from "./Card";
 import {playRound} from "../../data/actions/state";
 
-const mapStateToProps = ({revealScores,winner,loser}) => ({
-    revealScores,
-    winner,
-    loser
-});
+const mapStateToProps = ({revealScores,winner,loser,player1,player2},ownProps) => {
+    const {playerNum} = ownProps;
+    let player = [];
+
+    if(playerNum === 1){
+        player = player1;
+    } else if(playerNum === 2){
+        player = player2;
+    }
+
+    return {
+        revealScores,
+        winner,
+        loser,
+        player
+    }
+};
 
 const mapDispatchToProps = (dispatch) => ({
     play: data => dispatch(playRound(data))
